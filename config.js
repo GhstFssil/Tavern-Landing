@@ -13,7 +13,7 @@
 */
 window.TAVERN_CONFIG = {
   // Your custom domain, no https:// and no trailing slash. Example: 'example.com'
-  domain: '',
+  domain: 'theunassumingtavern.dev',
 
   sites: [
     {
@@ -25,13 +25,13 @@ window.TAVERN_CONFIG = {
     {
       id: 'bloodsoup-hell',
       label: 'Bloodsoup Hell',
-      subdomain: '',
+      subdomain: 'bsh-companion',
       githubPage: 'https://ghstfssil.github.io/BSH-Companion/',
     },
     {
       id: 'lifebrained',
       label: 'Lifebrained',
-      subdomain: '',
+      subdomain: 'lifebrained',
       githubPage: 'https://ghstfssil.github.io/Lifebrained/',
     },
   ],

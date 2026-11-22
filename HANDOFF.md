@@ -1,5 +1,5 @@
 # Handoff
-Last updated 2026-11-22 (morning, published v2). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
+Last updated 2026-11-22 (morning, published v3). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
 
 ## Goal
 Landing page for the whole project ("the Unassuming Tavern") on Ricky's custom domain: pixel-art tavern floor, title sign, three buttons to Poly Runner, Bloodsoup Hell and Lifebrained on their own subdomains, all served by GitHub Pages (interim hosting bridge before the home server, see the Master Controller plan, item 7).
@@ -10,23 +10,22 @@ Landing page for the whole project ("the Unassuming Tavern") on Ricky's custom d
 
 - 2026-11-22: published as version 1 (`next` pushed to `main`; release workflow makes the v1 release). Pages not yet switched on.
 - 2026-11-22: published as version 2: github.io fallbacks set for Bloodsoup Hell and Lifebrained; locked doors say "Coming soon". Domain is theunassumingtavern.dev (landing on the bare domain; lifebrained. and bsh-companion. subdomains); Poly Runner skipped for now. Pages is on for all four repos.
+- 2026-11-22: DNS and Pages custom domains set up on Cloudflare/GitHub for the landing (bare domain), Lifebrained and BSH-Companion; all load over HTTPS. Published v3: `config.js` points the doors at the subdomains.
 
 ## In progress
-- Testing the buttons via the github.io addresses, then DNS walkthrough. `domain`, subdomains and `CNAME` stay empty until DNS records exist (a CNAME now would redirect the github.io address to a domain that doesn't resolve).
+- Nothing.
 
 ## Decisions
-- Domain, the three subdomains and the three GitHub Page addresses are all blank on purpose. Ricky fills them in `config.js`; no `CNAME` file exists yet (an empty or placeholder one can break Pages).
+- `config.js` holds the domain and subdomains; Poly Runner's values stay blank (door locked, "Coming soon") until Ricky gives them. Never guess an address.
 - Page uses no service worker, backend or saved data (not a PWA).
 - Repo is public (Pages on the free plan needs that). Shipping follows the Lifebrained pattern: work on `next`, publish only when Ricky says so.
 
 ## Next steps
-1. Ricky: register the domain; send it with the three subdomains and each app's `github.io` address, then fill `config.js`.
-2. Add the `CNAME` file (domain only), turn on Pages for `main` (root), set DNS records (see README, Domain setup).
-3. For each app repo: Pages on, custom domain = its subdomain.
-4. Version 1 is on `main`. Later publishes: merge `main` into `next`, bump, push `next` to `main`.
+1. Poly Runner: when Ricky is ready, pick a subdomain, add a CNAME in Cloudflare (DNS only) to ghstfssil.github.io, set the custom domain in its Pages settings, then set its `subdomain` in `config.js` and publish. The game file is `checker-run.html` (no `index.html` yet).
+2. Later: replace Pages hosting with the home server (Master Controller plan, item 7).
 
 ## Gotchas
-- Pages is not enabled yet (Settings, Pages, `main`, root); `main` now has the full page, with all links blank and locked.
+- Pages is on for `main` (root); `CNAME` (theunassumingtavern.dev) was committed by GitHub's settings screen, so merge `main` into `next` before new work.
 - Tag pushes from the Claude session get 403; the release workflow makes tags.
 - The floor is 192x192 and scales in whole-number steps; on tall phones only a slice of it shows (by design).
 - Locked buttons use `aria-disabled`, not `disabled`, so they stay tappable and show the toast.
