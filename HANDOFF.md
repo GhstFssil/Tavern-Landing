@@ -1,5 +1,5 @@
 # Handoff
-Last updated 2026-11-22 (morning, later). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
+Last updated 2026-11-22 (morning, published v2). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
 
 ## Goal
 Landing page for the whole project ("the Unassuming Tavern") on Ricky's custom domain: pixel-art tavern floor, title sign, three buttons to Poly Runner, Bloodsoup Hell and Lifebrained on their own subdomains, all served by GitHub Pages (interim hosting bridge before the home server, see the Master Controller plan, item 7).
@@ -9,7 +9,7 @@ Landing page for the whole project ("the Unassuming Tavern") on Ricky's custom d
 - 2026-11-21: page built on `next` (not published): `index.html`, `style.css`, `app.js`, `config.js`, generated floor, self-hosted fonts, favicon, `tools/make_floor.py`, `.github/workflows/release.yml`. Checked in headless Chromium at 320 to 1920px: no console errors, no sideways scroll, link resolution (domain + subdomain, GitHub Page fallback, blank = locked, non-https ignored), hover and keyboard focus states.
 
 - 2026-11-22: published as version 1 (`next` pushed to `main`; release workflow makes the v1 release). Pages not yet switched on.
-- 2026-11-22: on `next` (not published): github.io fallbacks set for Bloodsoup Hell and Lifebrained; locked doors say "Coming soon". Domain is theunassumingtavern.dev (landing on the bare domain; lifebrained. and bsh-companion. subdomains); Poly Runner skipped for now. Pages is on for all four repos.
+- 2026-11-22: published as version 2: github.io fallbacks set for Bloodsoup Hell and Lifebrained; locked doors say "Coming soon". Domain is theunassumingtavern.dev (landing on the bare domain; lifebrained. and bsh-companion. subdomains); Poly Runner skipped for now. Pages is on for all four repos.
 
 ## In progress
 - Testing the buttons via the github.io addresses, then DNS walkthrough. `domain`, subdomains and `CNAME` stay empty until DNS records exist (a CNAME now would redirect the github.io address to a domain that doesn't resolve).

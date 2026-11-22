@@ -1,5 +1,5 @@
 /* The Unassuming Tavern landing page. Plain JS, no build step. Search for the "---------- name ----------" markers to find a section. */
-var APP_VERSION = '1';
+var APP_VERSION = '2';
 
 /* ---------- sprites ---------- */
 // 32-bit style pixel art drawn as SVG rects from ASCII maps. '.' is transparent.
