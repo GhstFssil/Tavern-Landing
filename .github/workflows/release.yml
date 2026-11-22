@@ -1,0 +1,51 @@
+# Publishes a GitHub release for every site change pushed to main: tag vN (N = APP_VERSION in app.js) and a zip of the site.
+# A push that only changes docs, tests or tools makes no release. A new push with the same version replaces that release's files.
+# GitHub Pages publishes main by itself; the zip is an archive copy. Run it by hand from the Actions tab to rebuild the current release.
+name: Release
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'tests/**', 'tools/**', '.gitignore', '.gitattributes']
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build the app zip
+        id: build
+        run: |
+          VER=$(sed -nE "s/.*APP_VERSION *= *'([^']+)'.*/\1/p" app.js | head -1)
+          test -n "$VER" || { echo "APP_VERSION not found in app.js"; exit 1; }
+          mkdir -p "$RUNNER_TEMP/out"
+          git ls-files | grep -v -E '^(tests|tools|\.github)/|\.md$|\.sql$|^\.git' | zip -q "$RUNNER_TEMP/out/tavern-landing-v$VER.zip" -@
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+      - name: Publish to Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VER: ${{ steps.build.outputs.version }}
+        run: |
+          TAG="v$VER"
+          PREV=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
+          {
+            echo "Tavern Landing $TAG. Built from commit ${GITHUB_SHA::7}."
+            echo
+            echo "- tavern-landing-$TAG.zip: the site files (archive copy; GitHub Pages publishes main by itself)."
+            echo
+            echo "Changes:"
+            if [ -n "$PREV" ] && [ "$PREV" != "$TAG" ] && git rev-parse -q --verify "refs/tags/$PREV" > /dev/null; then
+              git log --no-merges --format='- %s' "$PREV..HEAD"
+            else
+              git log --no-merges --format='- %s' -n 10
+            fi
+          } > "$RUNNER_TEMP/notes.md"
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file "$RUNNER_TEMP/notes.md"
+          else
+            gh release create "$TAG" --target "$GITHUB_SHA" --title "Tavern Landing $TAG" --notes-file "$RUNNER_TEMP/notes.md"
+          fi
+          gh release upload "$TAG" "$RUNNER_TEMP"/out/*.zip --clobber

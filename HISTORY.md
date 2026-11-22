@@ -4,3 +4,4 @@ Format: `- YYYY-MM-DD HH:MM | branch or version | what changed (and why, briefly
 Add a line with `echo '- ...' >> HISTORY.md`.
 
 - 2026-11-21 18:12 | main | Repo scaffolding matched to Poly-Runner, Lifebrained and BSH-Companion: CLAUDE.md, ARCHITECTURE.md, README.md, BACKLOG.md, HANDOFF.md, HISTORY.md, .gitattributes (union merge for HISTORY.md), .gitignore
+- 2026-11-21 18:20 | next | Landing page built: index.html, style.css, app.js (APP_VERSION 0.1), config.js (domain, subdomains and GitHub Page addresses blank), generated pixel tavern floor (tools/make_floor.py), self-hosted fonts, favicon, release workflow
