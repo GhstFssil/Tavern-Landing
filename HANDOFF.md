@@ -25,5 +25,5 @@ Landing page for the whole project ("the Unassuming Tavern") on Ricky's custom d
 ## Gotchas
 - Pages is not enabled yet and `main` has docs only until the first publish.
 - Tag pushes from the Claude session get 403; the release workflow makes tags.
-- The floor is 384x384 and scales in whole-number steps; on tall phones only a slice of it shows (by design).
+- The floor is 192x192 and scales in whole-number steps; on tall phones only a slice of it shows (by design).
 - Locked buttons use `aria-disabled`, not `disabled`, so they stay tappable and show the toast.

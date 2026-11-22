@@ -114,8 +114,8 @@ function buildTorches() {
 
 // Whole-number pixel scale for the floor so every art pixel stays square and crisp.
 function fitFloor() {
-  var scale = Math.max(2, Math.ceil(Math.max(window.innerWidth, window.innerHeight) / 384));
-  document.documentElement.style.setProperty('--floor-size', (384 * scale) + 'px');
+  var scale = Math.max(2, Math.ceil(Math.max(window.innerWidth, window.innerHeight) / 192));
+  document.documentElement.style.setProperty('--floor-size', (192 * scale) + 'px');
 }
 
 /* ---------- boot ---------- */

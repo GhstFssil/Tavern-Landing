@@ -14,7 +14,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-W = H = 384
+W = H = 384          # drawn at this size, then reduced by DOWN for chunkier pixels
+DOWN = 2             # 1 = fine pixels, 2 = twice as coarse (output 192x192)
 SEED = 32
 rng = np.random.default_rng(SEED)
 
@@ -187,18 +188,26 @@ tone[dark_gap] = np.where(rng.random(dark_gap.sum()) < 0.5, 0, 1) + 0  # near-bl
 # keep seams dark even under the glow, but let vignette show
 tone = np.clip(tone, 0, N - 1)
 
+# ---------- chunkier pixels: average each DOWN x DOWN block, but keep seams as dark seams ----------
+if DOWN > 1:
+    blocks = tone.reshape(H // DOWN, DOWN, W // DOWN, DOWN)
+    avg = np.floor(blocks.mean(axis=(1, 3)) + 0.5).astype(int)
+    seam = dark_gap.reshape(H // DOWN, DOWN, W // DOWN, DOWN).any(axis=(1, 3))
+    tone = np.where(seam, blocks.min(axis=(1, 3)), avg)
+OH, OW = tone.shape
+
 # ---------- straw and crumbs ----------
 rgb = PAL[tone]
 STRAW = [(0xC9, 0xA4, 0x4E), (0xE0, 0xC0, 0x6A), (0x9A, 0x7B, 0x3A)]
 for _ in range(34):
-    sx, sy = int(rng.integers(0, W - 6)), int(rng.integers(0, H - 3))
-    ln, sl = int(rng.integers(3, 7)), int(rng.choice([-1, 0, 1]))
+    sx, sy = int(rng.integers(0, OW - 6)), int(rng.integers(0, OH - 3))
+    ln, sl = int(rng.integers(2, 5)), int(rng.choice([-1, 0, 1]))
     col = STRAW[int(rng.integers(0, 3))]
     for i in range(ln):
-        px, py = sx + i, min(H - 1, max(0, sy + (i * sl) // 3))
+        px, py = sx + i, min(OH - 1, max(0, sy + (i * sl) // 3))
         rgb[py, px] = col
 
 out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "assets" / "floor.png"
 out.parent.mkdir(parents=True, exist_ok=True)
 Image.fromarray(rgb, "RGB").save(out, optimize=True)
-print(f"wrote {out} ({W}x{H}, {out.stat().st_size} bytes)")
+print(f"wrote {out} ({OW}x{OH}, {out.stat().st_size} bytes)")
