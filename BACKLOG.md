@@ -6,7 +6,7 @@ Format: `- [ ] (who, YYYY-MM-DD) short description; where/how to reproduce`
 _none logged yet_
 
 ## Ideas
-_none logged yet_
+- [ ] (Ricky, 2026-11-21) Merge the separate accounts on the apps into one master account which is used for both (unified Supabase project; data from current accounts should carry over seamlessly).
+- [ ] (Ricky, 2026-11-21) Remove the torches and the hangers on the sign.
 
 ## Watch (untested)
-- [ ] (handoff, 2026-11-21) Look and tap targets on a real iPhone and a real Android phone (only headless Chromium was checked)
