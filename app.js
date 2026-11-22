@@ -8,48 +8,6 @@ var SPRITE_COLORS = {
   w: '#fff6e0', b: '#7a4a2b', B: '#a9683a'
 };
 var SPRITES = {
-  gem: [
-    '............',
-    '...kkkkkk...',
-    '..kTTttOOk..',
-    '.kTTTttOOOk.',
-    'kkkkkkkkkkkk',
-    '.kTtttOOOOk.',
-    '..kTttOOOk..',
-    '...kTtOOk...',
-    '....kTOk....',
-    '.....kk.....',
-    '............',
-    '............'
-  ],
-  bowl: [
-    '...t..t.t...',
-    '....t..t....',
-    '...t..t.t...',
-    '.kkkkkkkkkk.',
-    'krrrrrrrrrrk',
-    'kOOOOOOOOOOk',
-    '.kOOOOOOOOk.',
-    '.kOOOOOOOOk.',
-    '..kooooook..',
-    '...kkkkkk...',
-    '..kkkkkkkk..',
-    '............'
-  ],
-  brain: [
-    '...kkkkkk...',
-    '.kkOOOkOOkk.',
-    'kOOtOOkOtOOk',
-    'kOtOOtkOOtOk',
-    'kOOtOOkOtOOk',
-    'kOtOOtkOOtOk',
-    'kOOOtOkOtOOk',
-    '.kOOOOkOOOk.',
-    '..kkkOOkkk..',
-    '....kttk....',
-    '....kkkk....',
-    '............'
-  ],
   torchA: [
     '....r...',
     '..rOr...',
@@ -128,8 +86,7 @@ function buildDoors() {
     el.setAttribute('data-site', site.id);
     if (url) { el.href = url; el.rel = 'noopener'; }
     else { el.type = 'button'; el.setAttribute('aria-disabled', 'true'); }
-    el.innerHTML = '<span class="face"><span class="icon">' + spriteSVG(SPRITES[site.icon] || SPRITES.gem) +
-      '</span><span class="label"></span></span>';
+    el.innerHTML = '<span class="face"><span class="label"></span></span>';
     el.querySelector('.label').textContent = site.label;
     if (!url) el.addEventListener('click', function () { toast('The door to ' + site.label + ' is barred for now.'); });
     li.appendChild(el);

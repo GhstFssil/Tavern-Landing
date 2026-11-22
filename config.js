@@ -19,21 +19,18 @@ window.TAVERN_CONFIG = {
     {
       id: 'poly-runner',
       label: 'Poly Runner',
-      icon: 'gem',
       subdomain: '',   // the part before the domain. Example: 'run'  ->  https://run.example.com/
       githubPage: '',  // Example: 'https://<your-github-name>.github.io/<repo-name>/'
     },
     {
       id: 'bloodsoup-hell',
       label: 'Bloodsoup Hell',
-      icon: 'bowl',
       subdomain: '',
       githubPage: '',
     },
     {
       id: 'lifebrained',
       label: 'Lifebrained',
-      icon: 'brain',
       subdomain: '',
       githubPage: '',
     },
