@@ -88,7 +88,7 @@ function buildDoors() {
     else { el.type = 'button'; el.setAttribute('aria-disabled', 'true'); }
     el.innerHTML = '<span class="face"><span class="label"></span></span>';
     el.querySelector('.label').textContent = site.label;
-    if (!url) el.addEventListener('click', function () { toast('The door to ' + site.label + ' is barred for now.'); });
+    if (!url) el.addEventListener('click', function () { toast(site.label + ': Coming soon.'); });
     li.appendChild(el);
     list.appendChild(li);
   });

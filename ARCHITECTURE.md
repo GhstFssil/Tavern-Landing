@@ -14,7 +14,7 @@
 - `CNAME`: (added later) the custom domain, one line, nothing else.
 
 ## Links
-Per door, in `doorUrl()`: `domain` + `subdomain` -> `https://<subdomain>.<domain>/` (a subdomain containing a dot is used as a full host). Else `githubPage` if set. Else the door is locked: the button shows and says the door is barred. Only `https:` URLs are accepted.
+Per door, in `doorUrl()`: `domain` + `subdomain` -> `https://<subdomain>.<domain>/` (a subdomain containing a dot is used as a full host). Else `githubPage` if set. Else the door is locked: the button shows and says "Coming soon". Only `https:` URLs are accepted.
 
 ## Deploy
 GitHub Pages serves `main` from the repo root, with the custom domain set in Settings > Pages and in `CNAME`. Each app repo has its own Pages site on its own subdomain (CNAME record to `<github-name>.github.io`). `.github/workflows/release.yml` publishes a `vN` release (N = `APP_VERSION`) with a zip of the site on every non-docs push to `main`; the zip is an archive copy. Branches: `next` (all agent work), `main` (published versions). Release steps are in CLAUDE.md.

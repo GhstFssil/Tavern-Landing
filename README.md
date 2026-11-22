@@ -22,7 +22,7 @@ DNS records at your registrar (set them DNS-only at first, so GitHub can issue t
 
 In each app's repo: Settings > Pages > Custom domain = its subdomain (this also creates its `CNAME` file there).
 
-Then open `config.js`, set `domain` and each site's `subdomain`, and the buttons link to `https://<subdomain>.<domain>/`. Until a subdomain works, a site's `githubPage` (its `github.io` address) can be used instead. Anything left blank shows a barred door.
+Then open `config.js`, set `domain` and each site's `subdomain`, and the buttons link to `https://<subdomain>.<domain>/`. Until a subdomain works, a site's `githubPage` (its `github.io` address) can be used instead. Anything left blank shows "Coming soon" when pressed.
 
 ## Updating
 The version is `APP_VERSION` in `app.js`, bumped with every push to `main` except a docs-only one. Each such push also makes a GitHub release with a zip of the site. To redraw the floor: `python3 tools/make_floor.py` (needs Pillow and numpy).

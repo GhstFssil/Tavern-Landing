@@ -26,13 +26,13 @@ window.TAVERN_CONFIG = {
       id: 'bloodsoup-hell',
       label: 'Bloodsoup Hell',
       subdomain: '',
-      githubPage: '',
+      githubPage: 'https://ghstfssil.github.io/BSH-Companion/',
     },
     {
       id: 'lifebrained',
       label: 'Lifebrained',
       subdomain: '',
-      githubPage: '',
+      githubPage: 'https://ghstfssil.github.io/Lifebrained/',
     },
   ],
 };
