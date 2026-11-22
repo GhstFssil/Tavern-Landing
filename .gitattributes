@@ -1,0 +1,2 @@
+# HISTORY.md is append-only: when branches both add lines, keep every line instead of conflicting.
+HISTORY.md merge=union
