@@ -1,12 +1,12 @@
 # Handoff
-Last updated 2026-11-23 (evening, torches removed on `next`, not published). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
+Last updated 2026-11-23 (evening, published v4). Overwrite each time; keep under 40 lines. Change record: HISTORY.md (don't read unless asked).
 
 ## Goal
 Landing page for the whole project ("the Unassuming Tavern") on theunassumingtavern.dev: pixel-art tavern floor, title sign, three buttons to Poly Runner, Bloodsoup Hell and Lifebrained on their own subdomains, all served by GitHub Pages (interim bridge before the home server, Master Controller plan item 7).
 
 ## Done
 - 2026-11-21/22: page built and published as v1-v3; DNS and Pages custom domains live for the landing, Lifebrained and BSH-Companion (see HISTORY.md).
-- 2026-11-23: merged `main` into `next` (Ricky's backlog items). Removed the torches (sprites, `buildTorches()`, torch CSS) and the sign's chains; checked at 390 and 1280px: no console errors, three doors, no sideways scroll. On `next` only; ships as v4 when Ricky says publish.
+- 2026-11-23: merged `main` into `next` (Ricky's backlog items). Removed the torches (sprites, `buildTorches()`, torch CSS) and the sign's chains; checked at 390 and 1280px: no console errors, three doors, no sideways scroll. Published as v4.
 
 ## In progress
 - Nothing.
@@ -17,7 +17,7 @@ Landing page for the whole project ("the Unassuming Tavern") on theunassumingtav
 - Shipping: work on `next`, publish only when Ricky says so.
 
 ## Next steps (agreed plan, 2026-11-23, in order)
-1. Publish v4 when Ricky says so.
+1. (done) v4 published.
 2. Docs refresh across all four repos: replace Netlify references with Pages + Cloudflare DNS; check docs are consistent across repos. Docs-only, straight to `main`; CLAUDE.md edits need Ricky's OK.
 3. Push/add-repo permissions: check the nightly sweep scheduled task's repo sources and push access; add a startup step that attaches all four repos with push; test with a manual run.
 4. One Tavern account: design doc first (one main Supabase project, a schema per app, merge users by email, dry run on a copy). Open question: do it now or once Supabase is self-hosted.

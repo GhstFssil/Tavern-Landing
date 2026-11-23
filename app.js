@@ -1,5 +1,5 @@
 /* The Unassuming Tavern landing page. Plain JS, no build step. Search for the "---------- name ----------" markers to find a section. */
-var APP_VERSION = '3';
+var APP_VERSION = '4';
 
 /* ---------- doors (links from config.js) ---------- */
 function doorUrl(site, domain) {
