@@ -7,7 +7,6 @@ _none logged yet_
 
 ## Ideas
 - [ ] (Ricky, 2026-11-21) Merge the separate accounts on the apps into one master Tavern account which is used for both (unified Supabase project; data from current accounts should carry over seamlessly).
-- [ ] (Ricky, 2026-11-21) (landing page) Remove the torches and the hangers on the sign.
 - [ ] (Ricky, 2026-11-21) Update the files in each project to reflect the new Github Pages with DNS project structure (they still refer to Netlify), and potentially benchmark the docs again.
 - [ ] (Ricky, 2026-11-21) Solve the add repo and push permissions issue once and for all, so nightly sweeps can run again and I don't have to randomly force retries or explicitly specify pushes.
 

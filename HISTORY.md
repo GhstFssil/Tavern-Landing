@@ -11,3 +11,4 @@ Add a line with `echo '- ...' >> HISTORY.md`.
 - 2026-11-22 08:49 | next | Added github.io fallbacks for Bloodsoup Hell and Lifebrained (Poly Runner left blank); locked doors now say "<name>: Coming soon."; domain and subdomains still blank until DNS works
 - 2026-11-22 08:52 | v2 | Published: github.io fallbacks for Bloodsoup Hell and Lifebrained, "Coming soon" on locked doors (APP_VERSION 1 -> 2); pushed next to main
 - 2026-11-22 09:45 | v3 | Published: config.js now has domain theunassumingtavern.dev and subdomains bsh-companion and lifebrained (Poly Runner still blank, shows Coming soon); APP_VERSION 2 -> 3; pushed next to main
+- 2026-11-23 17:58 | next | Removed the torches (sprites, buildTorches(), torch CSS) and the chains above the sign, per Ricky's backlog; docs and handoff updated

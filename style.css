@@ -53,18 +53,6 @@ body {
   margin-top: 56px;
   filter: drop-shadow(0 8px 0 rgba(10, 4, 2, .65));
 }
-.sign-wrap::before, .sign-wrap::after {   /* chains up into the dark rafters */
-  content: "";
-  position: absolute;
-  bottom: calc(100% - 6px);
-  width: 8px;
-  height: 100vh;
-  background: repeating-linear-gradient(to top, #8c8f93 0 8px, #3a3d42 8px 12px, #b9bcc1 12px 14px, #3a3d42 14px 16px);
-  z-index: 0;
-}
-.sign-wrap::before { left: 12%; }
-.sign-wrap::after { right: 12%; }
-
 .sign {
   position: relative;
   z-index: 1;
@@ -179,29 +167,6 @@ body {
 
 .nojs { color: var(--orange-hi); font-size: 12px; text-align: center; }
 
-/* ---------- torches ---------- */
-.torch { position: absolute; top: 24%; width: 64px; height: 128px; display: none; }
-.torch-l { left: 7vw; }
-.torch-r { right: 7vw; }
-.torch::before {   /* warm light pool */
-  content: "";
-  position: absolute;
-  left: 50%; top: 4%;
-  width: 360px; height: 360px;
-  transform: translate(-50%, -22%);
-  background: radial-gradient(circle, rgba(255, 150, 40, .34), rgba(255, 150, 40, 0) 66%);
-  pointer-events: none;
-}
-.torch .fa, .torch .fb { position: absolute; inset: 0; display: block; }
-.torch svg { width: 100%; height: 100%; display: block; filter: drop-shadow(4px 4px 0 rgba(10, 4, 2, .6)); }
-.torch .fa { animation: flickA .7s steps(1, end) infinite; }
-.torch .fb { animation: flickB .7s steps(1, end) infinite; }
-.torch-r .fa { animation-delay: -.25s; }
-.torch-r .fb { animation-delay: -.25s; }
-@keyframes flickA { 0% { opacity: 1; } 50% { opacity: 0; } }
-@keyframes flickB { 0% { opacity: 0; } 50% { opacity: 1; } }
-@media (min-width: 760px) { .torch { display: block; } }
-
 /* ---------- toast + version ---------- */
 .toast {
   position: fixed;
@@ -231,8 +196,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
-  .torch .fa { animation: none; opacity: 1; }
-  .torch .fb { animation: none; opacity: 0; }
 }
 @media (max-height: 640px) {
   .scene { gap: 28px; }
