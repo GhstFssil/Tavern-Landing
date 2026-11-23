@@ -10,3 +10,9 @@ _none logged yet_
 - [ ] (Ricky, 2026-11-21) Remove the torches and the hangers on the sign.
 
 ## Watch (untested)
+
+## Future Projects (Coding ideas that don't have a home or manifestation yet)
+- [ ] (Ricky, 2026-11-21) Wrapper for a trading platform (Webull?) that runs an algorithm to make trades automatically, with a set scope, at set intervals and with adjustable criteria dials, logging each decision it makes in a digestible way and generating analyses.
+- [ ] (Ricky, 2026-11-21) Storage cleaner, simple local system that analyzes files, particularly photos, identifies similar ones and easily deletes duplicates, and sorts the unsorted ones - could be an algorithm or a low-power/narrow-scope AI
+- [ ] (Ricky, 2026-11-21) "The Warden", a local AI that periodically reads all other projects, monitors overall system health (software and hardware) and subordinate watchdogs, hunts for bugs in the code or out-of-step repositories, offers performance/economy/security improvement suggestions, and benchmarks common functions and documents across projects. Has a twin; the two split the workload and monitor each other as well.
+- [ ] (Ricky, 2026-11-21) A better analysis and digitization system for Magic cards, possibly with market monitoring and semi-automatic purchasing/selling capabilities.
